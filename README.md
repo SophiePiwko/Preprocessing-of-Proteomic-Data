@@ -13,7 +13,7 @@ Users can only perform tasks that are already built into the software, with litt
 Since I will be handling many more samples during my PhD, I decided not to rely on Perseus for analysis. 
 Instead, I plan to use Python to process my data, which will provide greater control, flexibility, and reliability. 
 
-So in this project, written in Python 3, I would like to code the preprocessing steps to apply on my previous samples as well as my future samples. 
+So in this project, written in Python 3, I would like to streamline and automate the preprocessing steps to apply on my previous samples as well as my future samples. 
 
 # 💡 What does this project do? 
 The preprocessing steps include:
