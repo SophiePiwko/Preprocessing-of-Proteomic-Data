@@ -13,7 +13,7 @@ from collections import defaultdict
 # === CONFIGURATION ===
 #r"C:/Users/sophiep.WISMAIN/Desktop/
 CONFIG = {
-    'file_path': r"Preprocessing_of_Proteomic_Data/Data/report.pg_matrix.tsv",
+    'file_path': r"Preprocessing_of_Proteomic_Data/working_directory/report.pg_matrix.tsv",
     'output_path': r"Preprocessing_of_Proteomic_Data/output",
     'validity_threshold': 0.7,
     'imputation_params': {'shift': 1.5, 'scale': 0.5},
@@ -179,7 +179,7 @@ fig.update_layout(
 all_figures.append(("log_transformed_histogram_dropdown", fig))
 
 # === Step 4: Add annotations from KEGG and GO ===
-kegg_annot_path = r"C:/Users/sophiep.WISMAIN/Desktop/Perseus 2.0.11/bin/conf/annotations/mainAnnot.homo_sapiens.txt"
+kegg_annot_path = r"Preprocessing_of_Proteomic_Data/working_directory/mainAnnot.homo_sapiens.txt"
 kegg_df = pd.read_csv(kegg_annot_path, sep='\t', low_memory=False)
 
 log_df_with_annot = log_df.copy()
