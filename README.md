@@ -30,7 +30,7 @@ The preprocessing steps include:
 The input is the pg_matrix.tsv file received from DIA-NN and the output is multiple .csv files after each rpocessing step. This includes a .csv file after cleaning the column name, log transforming the data, adding annotations, filtering the data based on a user defined threshold and finally imputing data based on normal distribution. In addition, an .html file will be generated including multiple plots created throughout the processing steps. 
 
 # 👉 Requirements 👈
-Download the working_directory folder. This folder includes the raw dataset, a .txt file with the required packages, the file with the annotations and of course the python code. 
+Download the working_directory folder. This folder includes the raw dataset, a requirements.txt file with the needed packages, a zipped file with the annotations and of course the python code. 
 
 # 📖 Data set used
 The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
