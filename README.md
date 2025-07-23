@@ -17,16 +17,24 @@ So in this project, written in Python 3, I would like to streamline and automate
 
 # 💡 What does this project do? 
 The preprocessing steps include:
-1. Heatmap to look at the overall distribution and missingness of the data
-2. Log transformation
-3. Histogram to see if the data is distributed normally
-4. Filtering the rows based on a threshold of valid values
-5. Imputation and histogram to make sure that the distribution isn't scewed
-6. PCA plot to see the unsupervised clustering of the data
+1. Cleaning the column names
+2. Bar plot with Protein ID for each sample
+3. Heatmap to look at the overall missingness of the raw data
+4. Log transformation and histograms to see if the data is distributed normally
+5. Adding annotations and plotting the top 20 annotations
+6. Filtering genes based on a threshold of valid values
+7. Imputation and histogram to make sure that the distribution isn't scewed
+8. PCA plot to see the unsupervised clustering of the data
 
 # ➡️ Input and Output ⬅️
-The input will be the .tsv matrix received from DIA-NN and the output will be a matrix after the mentioned preprocessing steps 
-as well as heatmaps, histograms and PCA plots generated during the preprocessing. 
+The input is the pg_matrix.tsv file received from DIA-NN and the output is multiple .csv files after each rpocessing step. This includes a .csv file after cleaning the column name, log transforming the data, adding annotations, filtering the data based on a user defined threshold and finally imputing data based on normal distribution. In addition, an .html file will be generated including multiple plots created throughout the processing steps. 
+
+# 👉 Requirements 👈
+Download the working_directory folder. This folder includes the raw dataset, a .txt file with the required packages, the file with the annotations and of course the python code. 
+
+# 📖 Data set used
+The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
+Wang, H., Lim, K. P., Kong, W., Gao, H., Wong, B. J. H., Phua, S. X., Guo, T., & Goh, W. W. B. (2023). MultiPro: DDA-PASEF and diaPASEF acquired cell line proteomic datasets with deliberate batch effects. Scientific data, 10(1), 858. https://doi.org/10.1038/s41597-023-02779-8
 
 # 🔓 Conclusion
 This project offers an accessible and simple, yet customizable workflow for preprocessing proteomics data, including visualization of the data throughout the processing steps. 
