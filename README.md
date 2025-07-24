@@ -34,9 +34,16 @@ The input is the pg_matrix.tsv file received from DIA-NN and the output is multi
 Download the working_directory folder. This folder includes the raw dataset, a requirements.txt file with the needed packages, a zipped file with the annotations and of course the python code. 
 
 # 📝 Instructions
-1. Dowload each file in the working_directory file.
+1. Dowload each file in the working_directory file and save them to a new folder called "Preprocessing_of_Proteomic_Data"
    List of files to be downloaded:
-   - 
+   - Preprocessing_of_Proteomic_Data.py
+   - mainAnnot.homo_sapiens.zip
+   - report.pg_matrix.tsv
+   - requirements.txt
+2. Unzip the mainAnnot.homo_sapiens.zip file
+3. Open the terminal and navigate to the created folder using cd path of the folder
+4. run pip install -r requirements.txt in the terminal
+5. run python Preprocessing_of_Proteomic_Data in the terminal
 
 # 📖 Data set used
 The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
