@@ -33,6 +33,11 @@ The input is the pg_matrix.tsv file received from DIA-NN and the output is multi
 # 👉 Requirements 👈
 Download the working_directory folder. This folder includes the raw dataset, a requirements.txt file with the needed packages, a zipped file with the annotations and of course the python code. 
 
+# 📝 Instructions
+1. Dowload each file in the working_directory file.
+   List of files to be downloaded:
+   - 
+
 # 📖 Data set used
 The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
 
