@@ -23,8 +23,9 @@ The preprocessing steps include:
 4. Log transformation and histograms to see if the data is distributed normally
 5. Adding annotations and plotting the top 20 annotations
 6. Filtering genes based on a threshold of valid values
-7. Imputation and histogram to make sure that the distribution isn't scewed
-8. PCA plot to see the unsupervised clustering of the data
+7. Imputation based on normal distribution
+8. Histogram to visualize the overall distribution and the imputed data
+9. PCA plot to see the unsupervised clustering of the data
 
 # ➡️ Input and Output ⬅️
 The input is the pg_matrix.tsv file received from DIA-NN and the output is multiple .csv files after each rpocessing step. This includes a .csv file after cleaning the column name, log transforming the data, adding annotations, filtering the data based on a user defined threshold and finally imputing data based on normal distribution. In addition, an .html file will be generated including multiple plots created throughout the processing steps. 
