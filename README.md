@@ -27,8 +27,8 @@ The preprocessing steps include:
 8. Histogram to visualize the overall distribution and the imputed data
 9. PCA plot to see the unsupervised clustering of the data
 
-# ➡️ Input and Output ⬅️
-The input is the pg_matrix.tsv file received from DIA-NN and the output is multiple .csv files after each rpocessing step. This includes a .csv file after cleaning the column name, log transforming the data, adding annotations, filtering the data based on a user defined threshold and finally imputing data based on normal distribution. In addition, an .html file will be generated including multiple plots created throughout the processing steps. 
+# 📥 Input
+The input is the pg_matrix.tsv file received from the DIA-NN software.
 
 # 👉 Requirements 👈
 Download the working_directory folder. This folder includes the raw dataset, a requirements.txt file with the needed packages, a zipped file with the annotations and of course the python code. 
@@ -40,10 +40,14 @@ Download the working_directory folder. This folder includes the raw dataset, a r
    - mainAnnot.homo_sapiens.zip
    - report.pg_matrix.tsv
    - requirements.txt
-2. Unzip the mainAnnot.homo_sapiens.zip file
+2. Unzip the mainAnnot.homo_sapiens.zip folder. Note: make sure that the unzipped file is a .txt file and not a folder with the .txt file. 
 3. Open the terminal and navigate to the created folder using cd path of the folder
 4. run pip install -r requirements.txt in the terminal
-5. run python Preprocessing_of_Proteomic_Data in the terminal
+5. run python Preprocessing_of_Proteomic_Data.py in the terminal
+
+# 📤 Output
+Several .csv files are produced throughout the pipeline, with each file representing the output of a distinct processing stage. The files are numbered, corresponding to the order of processing. In addition, an .html file is created including all the plots generated throughout the pipeline. 
+"1_raw_data_cleaned_columns.csv" is generated after the column names and hava been cleaned. This file includes the raw data before any processing. The "Protein Count per Sample" plot and the "Missing Data Heatmap" plot in the html file are generated from this data, giving an overall overview of the raw data. This is helpfull in assessing the quality of the generated data set. Hovering over the bars in the barplot gives more detailed information. The heatmap is interactive, allowing the zoom in on the different genes. Next the data is log transformed and "2_log_transformed.csv" is generated. This file includes the log transformed values of the data set. The "log_transformed_histogram_dropdown" plots in the html file are generated form this .csv file. This allows the user to see that the data is distributed normally which is the assumption for the next steps. Notice that there is a drop down menu to look at the histogram for each sample seperatly. 
 
 # 📖 Data set used
 The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
