@@ -13,8 +13,8 @@ from collections import defaultdict
 # === CONFIGURATION ===
 #r"C:/Users/sophiep.WISMAIN/Desktop/
 CONFIG = {
-    'file_path': r"Preprocessing_of_Proteomic_Data/working_directory/report.pg_matrix.tsv",
-    'output_path': r"Preprocessing_of_Proteomic_Data/output",
+    'file_path': r"report.pg_matrix.tsv",
+    'output_path': r"output",
     'validity_threshold': 0.7,
     'imputation_params': {'shift': 1.5, 'scale': 0.5},
     'exclude_cols': ['Protein.Ids', 'Protein.Names', 'Genes', 'First.Protein.Description']
@@ -54,9 +54,9 @@ df = load_and_clean_data(CONFIG['file_path'])
 
 
 # Save cleaned raw data
-df.to_csv(os.path.join(CONFIG['output_path'], "step_1_raw_data_cleaned_columns.csv"))
+df.to_csv(os.path.join(CONFIG['output_path'], "1_raw_data_cleaned_columns.csv"))
 
-print(f"step_1_raw_data_cleaned_columns.csv has been saved to:\n{CONFIG['output_path']}")
+print(f"1_raw_data_cleaned_columns.csv has been saved to:\n{CONFIG['output_path']}")
 
 # === Step 2: Overview of the data ===
 total_items = df.size
@@ -134,9 +134,9 @@ all_figures.append(("Missing Data Heatmap", fig))
 # === Step 3: Log-transform data ===
 df_numeric = df.drop(columns=CONFIG['exclude_cols'], errors='ignore').apply(pd.to_numeric, errors='coerce')
 log_df = np.log1p(df_numeric)
-log_df.to_csv(os.path.join(CONFIG['output_path'], "step_3_log_transformed.csv"))
+log_df.to_csv(os.path.join(CONFIG['output_path'], "2_log_transformed.csv"))
 
-print(f"step_3_log_transformed.csv has been saved to:\n{CONFIG['output_path']}")
+print(f"2_log_transformed.csv has been saved to:\n{CONFIG['output_path']}")
 
 # === Step 3.1: Histograms of log-transformed expression by sample ===
 plot_cols = [col for col in log_df.columns if col not in CONFIG['exclude_cols']]
@@ -179,7 +179,7 @@ fig.update_layout(
 all_figures.append(("log_transformed_histogram_dropdown", fig))
 
 # === Step 4: Add annotations from KEGG and GO ===
-kegg_annot_path = r"Preprocessing_of_Proteomic_Data/working_directory/mainAnnot.homo_sapiens.txt"
+kegg_annot_path = r"mainAnnot.homo_sapiens.txt"
 kegg_df = pd.read_csv(kegg_annot_path, sep='\t', low_memory=False)
 
 log_df_with_annot = log_df.copy()
@@ -212,9 +212,9 @@ log_df_with_annot['KEGG_Pathway'] = log_df_with_annot['UniProt_ID'].map(kegg_map
 log_df_with_annot['GO_CC'] = log_df_with_annot['UniProt_ID'].map(gocc_map)
 log_df_with_annot['GO_MF'] = log_df_with_annot['UniProt_ID'].map(gomf_map)
 
-log_df_with_annot.to_csv(os.path.join(CONFIG['output_path'], "step_4_with_annotations.csv"))
+log_df_with_annot.to_csv(os.path.join(CONFIG['output_path'], "3_with_annotations.csv"))
 
-print(f"step_4_with_annotations.csv has been saved to:\n{CONFIG['output_path']}")
+print(f"3_with_annotations.csv has been saved to:\n{CONFIG['output_path']}")
 
 # === Step 4.1: Top 20 annotations for each type and plot ===
 def top_20_counts(df, col_name, type_name):
@@ -264,9 +264,9 @@ print(f"Filtered from {log_df_with_annot.shape[0]} to {filtered_df.shape[0]} gen
 print("Top missingness by sample:")
 print(log_df_with_annot[numeric_cols].isna().sum().sort_values(ascending=False).head(60))
 
-filtered_df.to_csv(os.path.join(CONFIG['output_path'], "step_5_filtered_70percent.csv"))
+filtered_df.to_csv(os.path.join(CONFIG['output_path'], "4_filtered_70percent.csv"))
 
-print(f"step_5_filtered_70percent.csv has been saved to:\n{CONFIG['output_path']}")
+print(f"4_filtered_70percent.csv has been saved to:\n{CONFIG['output_path']}")
 
 # === Step 6: Impute missing data by normal distribution ===
 def impute_missing_values(df, shift=1.5, scale=0.5):
@@ -295,9 +295,9 @@ def impute_missing_values(df, shift=1.5, scale=0.5):
     return df_imputed
 
 log_df_imputed = impute_missing_values(log_df, **CONFIG['imputation_params'])
-log_df_imputed.to_csv(os.path.join(CONFIG['output_path'], "step_6_imputed.csv"))
+log_df_imputed.to_csv(os.path.join(CONFIG['output_path'], "5_imputed.csv"))
 
-print(f"step_6_imputed.csv has been saved to:\n{CONFIG['output_path']}")
+print(f"5_imputed.csv has been saved to:\n{CONFIG['output_path']}")
 
 # === Step 6.1: Plot histograms of observed vs imputed values ===
 plot_cols_hist = [col for col in log_df.columns if col not in CONFIG['exclude_cols']]
