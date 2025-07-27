@@ -11,7 +11,6 @@ import math
 from collections import defaultdict
 
 # === CONFIGURATION ===
-#r"C:/Users/sophiep.WISMAIN/Desktop/
 CONFIG = {
     'file_path': r"report.pg_matrix.tsv",
     'output_path': r"output",
