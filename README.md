@@ -46,8 +46,29 @@ Download the working_directory folder. This folder includes the raw dataset, a r
 5. run python Preprocessing_of_Proteomic_Data.py in the terminal
 
 # 📤 Output
-Several .csv files are produced throughout the pipeline, with each file representing the output of a distinct processing stage. The files are numbered, corresponding to the order of processing. In addition, an .html file is created including all the plots generated throughout the pipeline. 
-"1_raw_data_cleaned_columns.csv" is generated after the column names and hava been cleaned. This file includes the raw data before any processing. The "Protein Count per Sample" plot and the "Missing Data Heatmap" plot in the html file are generated from this data, giving an overall overview of the raw data. This is helpfull in assessing the quality of the generated data set. Hovering over the bars in the barplot gives more detailed information. The heatmap is interactive, allowing the zoom in on the different genes. Next the data is log transformed and "2_log_transformed.csv" is generated. This file includes the log transformed values of the data set. The "log_transformed_histogram_dropdown" plots in the html file are generated form this .csv file. This allows the user to see that the data is distributed normally which is the assumption for the next steps. Notice that there is a drop down menu to look at the histogram for each sample seperatly. Next the "3_with_annotations.csv" file is generated which includes the KEGG and GO annotations associated with the genes in the data set. In addition, the "top20_annotations_barplot" is created in the html file. Hovering over the plot gives more detailed information about the annotation and how many genes are associated with this annotation. Next the data is filtered based on 70% valid values, creating the "4_filtered_70percent.csv" file. Filtering the data based on 70% valid value is standard and usually the default setting. This value however can be easily adjusted in the code if need be. Next there is data imputation based on normal distribution, generating the "5_imputed.csv" file as well as the "observed_vs_imputed_histogram" plot in the html file. Also here the width and shift of the imputed data can be easily adjusted in the code. The histogram shows the observed as well as the imputed data, allowing to see the overall distribution of the imputed data set at one glance. Lastly the "pca_unsupervised_clustering" is generated showing the unsupervised clustering of the data. 
+
+1️⃣ 1_raw_data_cleaned_columns.csv
+This file is created after the column names have been cleaned. It contains the raw data prior to any further processing. Two plots in the .html report are generated from this file:
+Protein Count per Sample: An interactive bar plot where hovering over bars reveals detailed counts.
+Missing Data Heatmap: An interactive heatmap allowing users to zoom in on individual genes.
+These visualizations provide an initial quality assessment of the raw dataset.
+
+2️⃣ 2_log_transformed.csv
+At this step, the data is log-transformed to approximate a normal distribution—an assumption for downstream analysis. The following plot is generated:
+Log-Transformed Histogram (Dropdown): A set of histograms (one per sample), viewable via a dropdown menu. These help confirm the normality of the transformed data distribution.
+
+3️⃣ 3_with_annotations.csv
+This file contains the dataset enriched with KEGG and GO gene annotations. The corresponding plot is:
+Top 20 Annotations Bar Plot: An interactive bar plot where hovering reveals detailed annotation names and the number of associated genes.
+
+4️⃣ 4_filtered_70percent.csv
+The dataset is filtered to retain only rows with at least 70% valid values—standard practice in many analyses. This threshold is adjustable in the code.
+
+5️⃣ 5_imputed.csv
+Missing values are imputed using a normal distribution. The following plot is generated:
+Observed vs. Imputed Histogram: A histogram showing both observed and imputed values, offering a clear view of the overall data distribution. Imputation parameters (width and shift) can be modified in the code.
+
+Finally, a PCA plot is generated to visualize unsupervised clustering of the dataset, helping to identify sample groupings and potential outliers.
 
 # 📖 Data set used
 The data set is publicly available and was downloaded from the Proteomics Identifications Database (Pride). 
