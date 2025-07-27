@@ -34,7 +34,7 @@ The input is the pg_matrix.tsv file received from the DIA-NN software.
 Download the working_directory folder. This folder includes the raw dataset, a requirements.txt file with the needed packages, a zipped file with the annotations and of course the python code. 
 
 # 📝 Instructions
-1. Dowload each file in the working_directory file and save them to a new folder called "Preprocessing_of_Proteomic_Data"
+1. Dowload each file in the working_directory folder and save them to a new folder called "Preprocessing_of_Proteomic_Data"
    List of files to be downloaded:
    - Preprocessing_of_Proteomic_Data.py
    - mainAnnot.homo_sapiens.zip
@@ -46,6 +46,9 @@ Download the working_directory folder. This folder includes the raw dataset, a r
 5. run python Preprocessing_of_Proteomic_Data.py in the terminal
 
 # 📤 Output
+
+A new folder called output  will be created in the Preprocessing_of_Proteomic_Data folder. This folder includes 5 .csv files and one summary_report_all_plots.html file. 
+Bellow is a detailed explanation of each processing step, .csv file and the corresponding plots created and saved to the html file. 
 
 1_raw_data_cleaned_columns.csv
 This file is created after the column names have been cleaned. It contains the raw data prior to any further processing. Two plots in the .html report are generated from this file:
