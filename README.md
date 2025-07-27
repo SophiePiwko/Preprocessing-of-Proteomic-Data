@@ -47,24 +47,24 @@ Download the working_directory folder. This folder includes the raw dataset, a r
 
 # 📤 Output
 
-1️⃣ 1_raw_data_cleaned_columns.csv
+1_raw_data_cleaned_columns.csv
 This file is created after the column names have been cleaned. It contains the raw data prior to any further processing. Two plots in the .html report are generated from this file:
 Protein Count per Sample: An interactive bar plot where hovering over bars reveals detailed counts.
 Missing Data Heatmap: An interactive heatmap allowing users to zoom in on individual genes.
 These visualizations provide an initial quality assessment of the raw dataset.
 
-2️⃣ 2_log_transformed.csv
+2_log_transformed.csv
 At this step, the data is log-transformed to approximate a normal distribution—an assumption for downstream analysis. The following plot is generated:
 Log-Transformed Histogram (Dropdown): A set of histograms (one per sample), viewable via a dropdown menu. These help confirm the normality of the transformed data distribution.
 
-3️⃣ 3_with_annotations.csv
+3_with_annotations.csv
 This file contains the dataset enriched with KEGG and GO gene annotations. The corresponding plot is:
 Top 20 Annotations Bar Plot: An interactive bar plot where hovering reveals detailed annotation names and the number of associated genes.
 
-4️⃣ 4_filtered_70percent.csv
+4_filtered_70percent.csv
 The dataset is filtered to retain only rows with at least 70% valid values—standard practice in many analyses. This threshold is adjustable in the code.
 
-5️⃣ 5_imputed.csv
+5_imputed.csv
 Missing values are imputed using a normal distribution. The following plot is generated:
 Observed vs. Imputed Histogram: A histogram showing both observed and imputed values, offering a clear view of the overall data distribution. Imputation parameters (width and shift) can be modified in the code.
 
